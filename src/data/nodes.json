@@ -1,0 +1,234 @@
+[
+  {
+    "": 1,
+    "id": 1,
+    "label": "Start",
+    "shape": "circle",
+    "font.size": 12,
+    "citation": "Start Here!"
+  },
+  {
+    "": 2,
+    "id": 2,
+    "label": "Experimental or \n Observational?",
+    "shape": "circle",
+    "font.size": 12,
+    "citation": "Did you directly randomize treatment"
+  },
+  {
+    "": 3,
+    "id": 3,
+    "label": "Full Compliance?",
+    "shape": "circle",
+    "font.size": 12,
+    "citation": "Did everyone who was assigned to treatment receive the treatment? Did anyone in the control receive the treatment?"
+  },
+  {
+    "": 4,
+    "id": 4,
+    "label": "Exogenous \n Randomization?",
+    "shape": "circle",
+    "font.size": 12,
+    "citation": "Was there some true randomization or pseudo-randomization that you did not control?"
+  },
+  {
+    "": 5,
+    "id": 5,
+    "label": "Compliance known?",
+    "shape": "circle",
+    "font.size": 12,
+    "citation": "Can you directly observe whether people received treatment or control?"
+  },
+  {
+    "": 6,
+    "id": 6,
+    "label": "ITT",
+    "shape": "star",
+    "font.size": 12,
+    "citation": "Lachin, John M. \"Statistical considerations in the intent-to-treat principle.\" Controlled clinical trials 21.3 (2000): 167-189."
+  },
+  {
+    "": 7,
+    "id": 7,
+    "label": "2SLS",
+    "shape": "star",
+    "font.size": 12,
+    "citation": "Angrist, Joshua D., and Guido W. Imbens. \"Two-stage least squares estimation of average causal effects in models with variable treatment intensity.\" Journal of the American statistical Association 90.430 (1995): 431-442."
+  },
+  {
+    "": 8,
+    "id": 8,
+    "label": "Covariates known \n in advance?",
+    "shape": "circle",
+    "font.size": 12,
+    "citation": "Do you have access to important control variables before you assign treatment?"
+  },
+  {
+    "": 9,
+    "id": 9,
+    "label": "Pair randomization",
+    "shape": "star",
+    "font.size": 12,
+    "citation": "Rubin, Donald B. \"Estimating causal effects of treatments in randomized and nonrandomized studies.\" Journal of educational Psychology 66.5 (1974): 688."
+  },
+  {
+    "": 10,
+    "id": 10,
+    "label": "Sequential pair \n randomization",
+    "shape": "star",
+    "font.size": 12,
+    "citation": "Greevy, Robert, et al. \"Optimal multivariate matching before randomization.\" Biostatistics 5.2 (2004): 263-275."
+  },
+  {
+    "": 11,
+    "id": 11,
+    "label": "True lottery?",
+    "shape": "circle",
+    "font.size": 12,
+    "citation": "Did nature perform a literal lottery in identifying who did and did not receive the treatment? Examples: \n\nWhite, Ariel. \"Misdemeanor Disenfranchisement? The demobilizing effects of brief jail spells on potential voters.\" American Political Science Review 113.2 (2019): 311-324. \n\nBrickman, Philip, Dan Coates, and Ronnie Janoff-Bulman. \"Lottery winners and accident victims: Is happiness relative?.\" Journal of personality and social psychology 36.8 (1978): 917."
+  },
+  {
+    "": 12,
+    "id": 12,
+    "label": "Matching",
+    "shape": "rectangle",
+    "font.size": 12,
+    "citation": "Matching is a set of tools to weaken the no-confounders assumption in obtaining causal identification. Some summaries of matching: \n\nStuart, Elizabeth A. \"Matching methods for causal inference: A review and a look forward.\" Statistical science: a review journal of the Institute of Mathematical Statistics 25.1 (2010): 1.\nDehejia, Rajeev H., and Sadek Wahba. \"Propensity score-matching methods for nonexperimental causal studies.\" Review of Economics and statistics 84.1 (2002): 151-161."
+  },
+  {
+    "": 13,
+    "id": 13,
+    "label": "As-if Random Cutoff?",
+    "shape": "circle",
+    "font.size": 12,
+    "citation": "Is there some pre-determined cutoff at which the treatment (or probability of treatment) is administered? For example, is there a test for which receiving  certain score grants a scholarship? Examples: \n\n    Eggers, Andrew C., and Jens Hainmueller. \"MPs for sale? Returns to office in postwar British politics.\" American Political Science Review 103.4 (2009): 513-533."
+  },
+  {
+    "": 14,
+    "id": 14,
+    "label": "(Y) Treatment\n (N) Probability of Treatment",
+    "shape": "circle",
+    "font.size": 12,
+    "citation": "Does the cutoff precisely determine the treatment or does it merely affect the probability of treatment? Does achieving a particular test score guarantee the scholarship, or does it merely increase the probability of receiving it?"
+  },
+  {
+    "": 15,
+    "id": 15,
+    "label": "Interrupted time series?",
+    "shape": "circle",
+    "font.size": 12,
+    "citation": "Was the treatment applied to some units but not others in the middle of a time series?"
+  },
+  {
+    "": 16,
+    "id": 16,
+    "label": "OLS",
+    "shape": "star",
+    "font.size": 12,
+    "citation": "If there is true randomization, even if the researcher didn not perform it, OLS will produce valid causal estimates."
+  },
+  {
+    "": 17,
+    "id": 17,
+    "label": "Sorting at the cutoff?",
+    "shape": "circle",
+    "font.size": 12,
+    "citation": "Do individuals know how close they are to receiving the treatment, and can they manipulate their efforts to receive it? \n\n    Caughey, Devin, and Jasjeet S. Sekhon. \"Elections and the regression discontinuity design: Lessons from close US house races, 1942–2008.\" Political Analysis 19.4 (2011): 385-408."
+  },
+  {
+    "": 18,
+    "id": 18,
+    "label": "Sorting at the cutoff?",
+    "shape": "circle",
+    "font.size": 12,
+    "citation": "Do individuals know how close they are to receiving the treatment, and can they manipulate their efforts to receive it? \n\n    Caughey, Devin, and Jasjeet S. Sekhon. \"Elections and the regression discontinuity design: Lessons from close US house races, 1942–2008.\" Political Analysis 19.4 (2011): 385-408."
+  },
+  {
+    "": 19,
+    "id": 19,
+    "label": "Sharp RDD",
+    "shape": "star",
+    "font.size": 12,
+    "citation": "Sharp RDD is where students don't know how close they are to the test score cutoff which perfectly determines their scholarship status."
+  },
+  {
+    "": 20,
+    "id": 20,
+    "label": "Fuzzy RDD",
+    "shape": "star",
+    "font.size": 12,
+    "citation": "Fuzzy RDD is where students don't know how close they are to the test score cutoff, which determines their probability of receiving a scholarship."
+  },
+  {
+    "": 21,
+    "id": 21,
+    "label": "Donut discontinuity",
+    "shape": "star",
+    "font.size": 12,
+    "citation": "If there is \"sorting\" around the discontinuity, then it is preferable to remove the individuals immediately surrounding the discontinuity: \n\n    Canaan, Serena, and Pierre Mouganie. \"Returns to education quality for low-skilled students: Evidence from a discontinuity.\" Journal of Labor Economics 36.2 (2018): 395-436."
+  },
+  {
+    "": 22,
+    "id": 22,
+    "label": "Fuzzy donut discontinuity",
+    "shape": "star",
+    "font.size": 12,
+    "citation": "If there is \"sorting\" around a discontinuity that imperfectly determines treatment: \n\n    Hausman, Catherine, and David S. Rapson. \"Regression discontinuity in time: Considerations for empirical applications.\" Annual Review of Resource Economics 10 (2018): 533-552."
+  },
+  {
+    "": 23,
+    "id": 23,
+    "label": "Known Treatment\n Probability Model?",
+    "shape": "circle",
+    "font.size": 12,
+    "citation": "Do you (approximately) know the functional form of the model used to determine treatment? \n\n    Lee, Brian K., Justin Lessler, and Elizabeth A. Stuart. \"Improving propensity score weighting using machine learning.\" Statistics in medicine 29.3 (2010): 337-346.."
+  },
+  {
+    "": 24,
+    "id": 24,
+    "label": "ML-based Propensity Score Matching",
+    "shape": "star",
+    "font.size": 12,
+    "citation": "We never truly know the propensity score model, so using machine learning methods helps us approximate it better. \n\n    Feng, Mengling, et al. \"Transthoracic echocardiography and mortality in sepsis: analysis of the MIMIC-III database.\" Intensive care medicine 44.6 (2018): 884-892 \n\n    But see also: \n\n    King, Gary, and Richard Nielsen. \"Why propensity scores should not be used for matching.\" Political Analysis 27.4 (2019): 435-454."
+  },
+  {
+    "": 25,
+    "id": 25,
+    "label": "Few Discrete Covariates?",
+    "shape": "circle",
+    "font.size": 12,
+    "citation": "Do you have few covariates, each of which is categorical or discrete?"
+  },
+  {
+    "": 26,
+    "id": 26,
+    "label": "Exact Matching",
+    "shape": "star",
+    "font.size": 12,
+    "citation": "Exact matching reduces measurable covariate imbalance to zero, but often reduces sample size too much."
+  },
+  {
+    "": 27,
+    "id": 27,
+    "label": "Fewer than 20 covariates?",
+    "shape": "circle",
+    "font.size": 12,
+    "citation": "Do you have more than a few covariates, some of which are continuous variables?"
+  },
+  {
+    "": 28,
+    "id": 28,
+    "label": "Coarsened exact matching",
+    "shape": "star",
+    "font.size": 12,
+    "citation": "Identify some bins for your variables, like putting ages into bins of 5 years or income into bins of $10,000, then match on those bins. \n\n    Iacus, Stefano M., Gary King, and Giuseppe Porro. \"Causal inference without balance checking: Coarsened exact matching.\" Political analysis 20.1 (2012): 1-24."
+  },
+  {
+    "": 29,
+    "id": 29,
+    "label": "Cardinality matching",
+    "shape": "star",
+    "font.size": 12,
+    "citation": "Zubizarreta, José R., Ricardo D. Paredes, and Paul R. Rosenbaum. \"Matching for balance, pairing for heterogeneity in an observational study of the effectiveness of for-profit and not-for-profit high schools in Chile.\" The Annals of Applied Statistics 8.1 (2014): 204-231."
+  }
+]

@@ -1,0 +1,170 @@
+[
+  {
+    "from": 1,
+    "to": 2,
+    "arrows": "to",
+    "label": ""
+  },
+  {
+    "from": 2,
+    "to": 3,
+    "arrows": "to",
+    "label": "Y"
+  },
+  {
+    "from": 2,
+    "to": 4,
+    "arrows": "to",
+    "label": "N"
+  },
+  {
+    "from": 5,
+    "to": 6,
+    "arrows": "to",
+    "label": "N"
+  },
+  {
+    "from": 5,
+    "to": 7,
+    "arrows": "to",
+    "label": "Y"
+  },
+  {
+    "from": 3,
+    "to": 5,
+    "arrows": "to",
+    "label": "N"
+  },
+  {
+    "from": 3,
+    "to": 8,
+    "arrows": "to",
+    "label": "Y"
+  },
+  {
+    "from": 8,
+    "to": 9,
+    "arrows": "to",
+    "label": "Y"
+  },
+  {
+    "from": 8,
+    "to": 10,
+    "arrows": "to",
+    "label": "N"
+  },
+  {
+    "from": 4,
+    "to": 11,
+    "arrows": "to",
+    "label": "Y"
+  },
+  {
+    "from": 4,
+    "to": 12,
+    "arrows": "to",
+    "label": "N"
+  },
+  {
+    "from": 11,
+    "to": 13,
+    "arrows": "to",
+    "label": "N"
+  },
+  {
+    "from": 13,
+    "to": 14,
+    "arrows": "to",
+    "label": "Y"
+  },
+  {
+    "from": 13,
+    "to": 15,
+    "arrows": "to",
+    "label": "N"
+  },
+  {
+    "from": 14,
+    "to": 17,
+    "arrows": "to",
+    "label": "Y"
+  },
+  {
+    "from": 14,
+    "to": 18,
+    "arrows": "to",
+    "label": "N"
+  },
+  {
+    "from": 17,
+    "to": 19,
+    "arrows": "to",
+    "label": "N"
+  },
+  {
+    "from": 17,
+    "to": 21,
+    "arrows": "to",
+    "label": "Y"
+  },
+  {
+    "from": 18,
+    "to": 20,
+    "arrows": "to",
+    "label": "N"
+  },
+  {
+    "from": 18,
+    "to": 22,
+    "arrows": "to",
+    "label": "Y"
+  },
+  {
+    "from": 11,
+    "to": 16,
+    "arrows": "to",
+    "label": "Y"
+  },
+  {
+    "from": 12,
+    "to": 23,
+    "arrows": "to",
+    "label": "Y"
+  },
+  {
+    "from": 23,
+    "to": 24,
+    "arrows": "to",
+    "label": "Y"
+  },
+  {
+    "from": 23,
+    "to": 25,
+    "arrows": "to",
+    "label": "N"
+  },
+  {
+    "from": 25,
+    "to": 26,
+    "arrows": "to",
+    "label": "Y"
+  },
+  {
+    "from": 25,
+    "to": 27,
+    "arrows": "to",
+    "label": "N"
+  },
+  {
+    "from": 27,
+    "to": 28,
+    "arrows": "to",
+    "label": "Y"
+  },
+  {
+    "from": 27,
+    "to": 29,
+    "arrows": "to",
+    "label": "N"
+  }
+]

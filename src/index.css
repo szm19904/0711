@@ -1,0 +1,255 @@
+/*@tailwind base;
+@tailwind components;
+@tailwind utilities;*/
+*
+{
+  font-family: Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f9fa;
+}
+
+body {
+  background-color: #f1f3f5;
+  color: #2b2e33;
+  line-height: 1.6;
+}
+
+.App {
+  padding: 20px;
+  min-height: 400px;
+}
+
+h1 {
+  font-size: 32px;
+  font-weight: bold;
+  color: #2b2e33;
+  text-align: center;
+  padding-top: 15px;
+  margin-bottom: 20px;
+}
+
+.bg-body-tertiary {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  background-color: #ffffff;
+}
+
+.container {
+  margin: 20px auto;
+  max-width: 1200px;
+}
+
+.mindmap-children {
+  margin-left: 20px;
+  border-left: 2px solid #b2bec3;
+  padding-left: 15px;
+}
+
+.mindmap-container {
+  min-height: 100vh;
+}
+
+.mindmap-container p {
+  font-style: italic;
+  color: #444;
+}
+
+.node-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 10px;
+  width: 100%;  
+}
+.node-container button {
+  width: 100%; 
+  text-align: center;
+}
+.node {
+  margin: 10px;
+  display: inline;
+}
+
+.mindmap-container .inner-container {
+  padding: 20px;
+  /*box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);*/
+}
+
+nav.navbar {
+  border-bottom: 2px solid #4582be; 
+  box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.15);
+}
+
+nav.navbar .navbar-brand {
+  font-size: 24px;
+  color: #4582be;
+}
+
+nav.navbar .nav-link {
+  color: #343a40;
+}
+
+nav.navbar .nav-link:hover {
+  background-color: #dfe6e9;
+  color: #5095db;
+  border-radius: 4px;
+}
+
+button[type="button"] {
+  margin-bottom: 1rem;
+  padding: 8px 12px;
+  font-size: 14px;
+  background-color: #4582be;
+  border: none;
+  color: #ffffff;
+  transition: background-color 0.2s ease;
+  justify-content: space-evenly;
+
+}
+
+button[type="button"]:hover {
+  background-color: #accff1;
+  cursor: pointer;
+}
+
+.sidebar {
+  height: 100%;
+  width: 100%;
+  max-width: 350px;
+  background-color: #dfe6e9;
+  padding: 20px;
+  border-left: 1px solid #b2bec3;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+}
+.sidebar-col{
+  padding: 15px;
+}
+/*.sidebar-col .card{
+  border: 1px solid #007bff;
+}
+.sidebar-col .card-body {
+  background-color: #dfe6e9;
+}*/
+
+.sidebar-col h3 {
+  font-size: 22px;
+  color: #2b2e33;
+  margin-bottom: 10px;
+}
+
+.sidebar-col h4 {
+  font-size: 18px;
+  color: #444;
+  margin-top: 15px;
+}
+
+.sidebar-col p {
+  font-size: 16px;
+  color: #555;
+}
+/*
+button {
+  padding: 8px 12px;
+  font-size: 14px;
+  background-color: #003c4d;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s, color 0.3s;  
+  justify-content: space-evenly;
+}*/
+button{
+  width: 100%; 
+  padding: 10px; 
+  border-radius: 5px;  
+  transition: background-color 0.3s, color 0.3s;  
+}
+
+button:hover {
+  background-color: #101214;
+  color: #ffffff;
+}
+button.primary {
+  background-color: #007bff;
+  color: white; 
+}
+button.light {
+  background-color: #e9ecef;
+  color: #343a40;
+}
+
+.node-label {
+  cursor: pointer;
+  color: #2b2e33;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.node-label:hover {
+  background-color: #006dbf;
+  color: #ffffff;
+}
+
+.center {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.col-6 {
+    flex: 0 0 auto;
+    width: 100% !important;
+    display: flex !important;
+    justify-content:  space-evenly  !important;
+}
+
+.row-nodes{
+  display: flex;
+  flex-direction: row; 
+  justify-content: space-around;
+  gap: 1rem; 
+}
+
+.row {
+  display: flex; 
+  justify-content: space-around; 
+  flex-wrap: wrap;
+
+}
+
+.nodes-col{
+  padding: 10px;
+}
+.col-node {
+  display: flex;
+  flex-wrap: wrap;
+}
+.col-node > div{
+  flex: 1 1 calc(33% - 1rem); 
+  margin: 0.5rem;
+}
+
+#add-node-btn {
+  width: 100px;
+  font-size: 14px;
+  padding: 5px 10px;
+  background-color: #f8f9fa;
+  color: #4582be;
+  border: 1px solid #b2bec3;
+  margin-top: 10px;
+  transition: background-color 0.3s, color 0.3s;  
+}
+
+#add-node-btn:hover{
+  width: 100px;
+  font-size: 14px;
+  padding: 5px 10px;
+  color: #f8f9fa;
+  background-color: #4582be;
+  border: 1px solid #b2bec3;
+  transition: background-color 0.3s, color 0.3s;  
+}
