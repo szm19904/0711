@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import nodesData from '../data/nodes.json';
 import edgesData from '../data/edges.json';
-import { Button, Card, Row, Col, Container, Form } from 'react-bootstrap';
+import { Button, Card, Row, Container, Col } from 'react-bootstrap';
+import Sidebar from './Sidebar';
 import '../index.css';
 
 const buildTree = (nodes, edges) => {
@@ -19,7 +20,90 @@ const buildTree = (nodes, edges) => {
   return nodesDict[1];
 };
 
-const Node = ({ nodeData, selectNode }) => {
+const Nodes = () => {
+  const [treeData, setTreeData] = useState(null);
+  const [nodes, setNodes] = useState(nodesData);
+  const [edges, setEdges] = useState(edgesData);
+  const [nodeHistory, setNodeHistory] = useState([]);
+  const [selectedNode, setSelectedNode] = useState(null);
+  const [hoveredNode, setHoveredNode] = useState(null);  // State for hovered node
+
+  useEffect(() => {
+    const tree = buildTree(nodes, edges);
+    setTreeData(tree);
+  }, [nodes, edges]);
+
+  const selectNode = (node) => {
+    setNodeHistory((prevHistory) => [...prevHistory, node]);
+    setTreeData(node);
+    setSelectedNode(node);
+  };
+
+  const goBack = () => {
+    if (nodeHistory.length > 1) {
+      const previousNode = nodeHistory[nodeHistory.length - 2];
+      setTreeData(previousNode);
+      setNodeHistory((prevHistory) => prevHistory.slice(0, -1));
+    }
+  };
+
+  const handleAddNode = (newNodeLabel, parentId) => {
+    const newId = nodes.length + 1;
+    const newNode = {
+      id: newId,
+      label: newNodeLabel,
+      shape: "circle",
+      font: { size: 12 },
+      children: []
+    };
+
+    const newEdge = { from: parseInt(parentId), to: newId };
+
+    setNodes([...nodes, newNode]);
+    setEdges([...edges, newEdge]);
+  };
+
+  return (
+    <Container>
+      <Row>
+        <Col md={9}>
+          <Card>
+            <Card.Body>
+              <Row className="row-nodes">
+                {treeData ? (
+                  <Node nodeData={treeData} selectNode={selectNode} setHoveredNode={setHoveredNode} />
+                ) : (
+                  <p>Loading tree data...</p>
+                )}
+              </Row>
+
+              {nodeHistory.length > 1 && (
+                <Button
+                  id='back-btn'
+                  variant="secondary"
+                  onClick={goBack}
+                  style={{
+                    marginTop: '1rem',
+                    borderRadius: '8px',
+                    padding: '6px 12px',
+                  }}
+                >
+                  Back
+                </Button>
+              )}
+            </Card.Body>
+          </Card>
+        </Col>
+
+        <Col md={3}>
+          <Sidebar selectedNode={hoveredNode || selectedNode} nodes={nodes} onAddNode={handleAddNode} />
+        </Col>
+      </Row>
+    </Container>
+  );
+};
+
+const Node = ({ nodeData, selectNode, setHoveredNode }) => {
   const [showChildren, setShowChildren] = useState(false);
 
   return (
@@ -31,6 +115,8 @@ const Node = ({ nodeData, selectNode }) => {
             setShowChildren(!showChildren);
             selectNode(nodeData);
           }}
+          onMouseEnter={() => setHoveredNode(nodeData)}  // Trigger hover change
+          onMouseLeave={() => setHoveredNode(null)}      // Reset when mouse leaves
           style={{ textAlign: 'center', marginBottom: '1rem' }}
         >
           {`${nodeData.label}`}
@@ -40,107 +126,12 @@ const Node = ({ nodeData, selectNode }) => {
         <Row className="col-node">
           {nodeData.children.map((child) => (
             <div key={child.id} style={{ marginBottom: '1rem', flex: '1 1 0' }}>
-              <Node nodeData={child} selectNode={selectNode} />
+              <Node nodeData={child} selectNode={selectNode} setHoveredNode={setHoveredNode} />
             </div>
           ))}
         </Row>
       )}
     </Row>
-  );
-};
-
-const Nodes = ({ onSelectNode }) => {
-  const [treeData, setTreeData] = useState(null);
-  const [nodes, setNodes] = useState(nodesData);
-  const [edges, setEdges] = useState(edgesData);
-  const [newNodeLabel, setNewNodeLabel] = useState('');
-  const [parentId, setParentId] = useState('');
-  const [showInputFields, setShowInputFields] = useState(false);
-
-  useEffect(() => {
-    const tree = buildTree(nodes, edges);
-    setTreeData(tree);
-  }, [nodes, edges]);
-
-  const handleAddNode = () => {
-    if (newNodeLabel && parentId) {
-      const newId = nodes.length + 1;
-      const newNode = {
-        id: newId,
-        label: newNodeLabel,
-        shape: "circle",
-        font: { size: 12 },
-        children: []
-      };
-
-      const newEdge = { from: parseInt(parentId), to: newId };
-
-      console.log('New Node Added:', newNode);
-      console.log('New Edge:', newEdge); 
-      console.log('Parent Node ID:', parentId);
-
-      setNodes([...nodes, newNode]);
-      setEdges([...edges, newEdge]);
-      setNewNodeLabel(''); 
-      setParentId('');
-      setShowInputFields(false); 
-    }
-  };
-
-  return (
-    <Card>
-      <Card.Body>
-        <Container>
-          <Button 
-            id="add-node-btn"  
-            onClick={() => setShowInputFields(!showInputFields)} 
-            style={{ marginBottom: '1rem' }}
-          >
-            {showInputFields ? "Cancel" : "+ Add Node"}
-          </Button>
-          
-          {showInputFields && (
-            <Form>
-              <Form.Group controlId="newNodeLabel">
-                <Form.Label>Node Label</Form.Label>
-                <Form.Control
-                  type="text"
-                  placeholder="Enter node label"
-                  value={newNodeLabel}
-                  onChange={(e) => setNewNodeLabel(e.target.value)}
-                />
-              </Form.Group>
-              <Form.Group controlId="parentId">
-                <Form.Label>Select Parent Node</Form.Label>
-                <Form.Control
-                  as="select"
-                  value={parentId}
-                  onChange={(e) => setParentId(e.target.value)}
-                >
-                  <option value="" >Select the node</option>
-                  {nodes.map((node) => (
-                    <option key={node.id} value={node.id}>
-                      {`${node.label} `}
-                    </option>
-                  ))}
-                </Form.Control>
-              </Form.Group>
-              <Button id="add-node-btn" size="sm" onClick={handleAddNode}>
-                Confirm Add
-              </Button>
-            </Form>
-          )}
-          
-          <Row className="row-nodes">
-            {treeData ? (
-              <Node nodeData={treeData} selectNode={onSelectNode} />
-            ) : (
-              <p>Loading tree data...</p>
-            )}
-          </Row>
-        </Container>
-      </Card.Body>
-    </Card>
   );
 };
 

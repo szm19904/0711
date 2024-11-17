@@ -13,12 +13,15 @@ const Sidebar = ({selectedNode}) => {
 
 export default Sidebar;*/
 
-
-import React from 'react';
-import { ListGroup, Card } from 'react-bootstrap';
+import React, { useState } from 'react';
+import { ListGroup, Card, Button, Form } from 'react-bootstrap';
 import '../index.css';
 
-const Sidebar = ({ selectedNode }) => {
+const Sidebar = ({ selectedNode, nodes, onAddNode }) => {
+  const [showInputFields, setShowInputFields] = useState(false);
+  const [newNodeLabel, setNewNodeLabel] = useState('');
+  const [parentId, setParentId] = useState('');
+
   if (!selectedNode) {
     return (
       <Card>
@@ -30,6 +33,15 @@ const Sidebar = ({ selectedNode }) => {
   }
 
   const { label, citation, children } = selectedNode;
+
+  const handleAddNode = () => {
+    if (newNodeLabel && parentId) {
+      onAddNode(newNodeLabel, parentId); 
+      setNewNodeLabel('');
+      setParentId('');
+      setShowInputFields(false);
+    }
+  };
 
   return (
     <Card>
@@ -46,6 +58,50 @@ const Sidebar = ({ selectedNode }) => {
             <ListGroup.Item>No further options</ListGroup.Item>
           )}
         </ListGroup>
+
+        <Button
+          id="add-node-btn"
+          onClick={() => setShowInputFields(!showInputFields)}
+          style={{ marginTop: '1rem' }}
+        >
+          {showInputFields ? "Cancel" : "+ Add Node"}
+        </Button>
+
+        {showInputFields && (
+          <Form style={{ marginTop: '5px' }}>
+            <Form.Group controlId="newNodeLabel">
+              <Form.Label>Node Label</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter node label"
+                value={newNodeLabel}
+                onChange={(e) => setNewNodeLabel(e.target.value)}
+              />
+            </Form.Group>
+            <Form.Group controlId="parentId">
+              <Form.Label>Select Parent Node</Form.Label>
+              <Form.Control
+                as="select"
+                value={parentId}
+                onChange={(e) => setParentId(e.target.value)}
+              >
+                <option value="">Select the node</option>
+                {nodes.map((node) => (
+                  <option key={node.id} value={node.id}>
+                    {node.label}
+                  </option>
+                ))}
+              </Form.Control>
+            </Form.Group>
+            <Button
+              id="conf-node-btn"
+              size="sm"
+              onClick={handleAddNode}
+            >
+              Confirm Add
+            </Button>
+          </Form>
+        )}
       </Card.Body>
     </Card>
   );

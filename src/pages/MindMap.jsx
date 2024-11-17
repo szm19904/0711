@@ -18,13 +18,11 @@ const MindMap = () => {
     <Container fluid className="mindmap-container">
       <Navigation />
       <Container className="inner-container">
-        <Row>
-          <Col sm={9} className="nodes-col">
+        <Row className="nodes-col">
+          
             <Nodes onSelectNode={handleNodeSelect} />
-          </Col>
-          <Col sm={3} className="sidebar-col">
-            <Sidebar selectedNode={selectedNode} />
-          </Col>
+          
+          
         </Row>
       </Container>
     </Container>
