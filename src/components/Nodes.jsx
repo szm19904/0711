@@ -27,6 +27,7 @@ const Nodes = () => {
   const [nodeHistory, setNodeHistory] = useState([]);
   const [selectedNode, setSelectedNode] = useState(null);
   const [hoveredNode, setHoveredNode] = useState(null);  // State for hovered node
+  const [modalActive, setModalActive] = useState(false);  // State to control modal backdrop effect
 
   useEffect(() => {
     const tree = buildTree(nodes, edges);
@@ -61,10 +62,11 @@ const Nodes = () => {
 
     setNodes([...nodes, newNode]);
     setEdges([...edges, newEdge]);
+    setModalActive(true);  // Activate modal when a new node is added
   };
 
   return (
-    <Container>
+    <Container className={modalActive ? 'modal-active' : ''}>
       <Row>
         <Col md={9}>
           <Card>
@@ -96,7 +98,12 @@ const Nodes = () => {
         </Col>
 
         <Col md={3}>
-          <Sidebar selectedNode={hoveredNode || selectedNode} nodes={nodes} onAddNode={handleAddNode} />
+          <Sidebar
+            selectedNode={hoveredNode || selectedNode}
+            nodes={nodes}
+            onAddNode={handleAddNode}
+            setModalActive={setModalActive}  // Pass the setModalActive to Sidebar
+          />
         </Col>
       </Row>
     </Container>
